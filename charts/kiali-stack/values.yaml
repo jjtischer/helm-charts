@@ -65,6 +65,10 @@ grafana:
         gnetId: 7645
         revision: 92
         datasource: Prometheus
+      jaeger:
+        gnetId: 10001
+        revision: 2
+        datasource: Prometheus
   dashboardProviders:
     dashboardproviders.yaml:
       apiVersion: 1
@@ -111,6 +115,9 @@ jaeger:
     service:
       # loadBalancerIP: "10.1.1.107"
       type: LoadBalancer
+  storage:
+    cassandra:
+      nameOverride: cassandra
 
 
 # https://github.com/kiali/helm-charts/blob/master/kiali-server/values.yaml

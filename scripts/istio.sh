@@ -18,7 +18,7 @@ if [[ $1 = "install-grafana-stack" ]]; then
 fi
 
 if [[ $1 = "install-kiali-stack" ]]; then
-  kubectl --kubeconfig ${KUBECONFIG} apply -f ${ISTIO_OPERATOR_DIR}/loki-stack.yaml
+  kubectl --kubeconfig ${KUBECONFIG} apply -f ${ISTIO_OPERATOR_DIR}/kiali-stack.yaml
   exit 0
 fi
 
