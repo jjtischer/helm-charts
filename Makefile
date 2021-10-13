@@ -56,8 +56,8 @@ istio-istioctl: ## Install istioctl binary
 istio-grafana-stack: ## Install Istio with Grafana Stack configured
 	./scripts/istio.sh install-grafana-stack
 
-istio-loki-stack: ## Install Istio with Loki Stack configured
-	./scripts/istio.sh install-loki-stack
+istio-kiali-stack: ## Install Istio with Kiali Stack configured
+	./scripts/istio.sh install-kiali-stack
 
 
 ################

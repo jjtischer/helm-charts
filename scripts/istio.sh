@@ -17,7 +17,7 @@ if [[ $1 = "install-grafana-stack" ]]; then
   exit 0
 fi
 
-if [[ $1 = "install-loki-stack" ]]; then
+if [[ $1 = "install-kiali-stack" ]]; then
   kubectl --kubeconfig ${KUBECONFIG} apply -f ${ISTIO_OPERATOR_DIR}/loki-stack.yaml
   exit 0
 fi
@@ -28,5 +28,5 @@ if [[ $1 = "istioctl" ]]; then
   exit 0
 fi
 
-echo "please specify action ./istio.sh install-operator/install-grafana-stack/install-loki-stack/istioctl"
+echo "please specify action ./istio.sh install-operator/install-grafana-stack/install-kiali-stack/istioctl"
 exit 1
