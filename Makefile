@@ -8,6 +8,21 @@ help: ## This help
 
 .DEFAULT_GOAL := help
 
+
+################
+#### CHARTS ####
+################
+
+charts-package:  ## Package Helm charts
+	./scripts/charts.sh package
+
+charts-upload: ## Upload Helm chart packages to GitHub Release
+	./scripts/charts.sh upload
+
+charts-index: ## Update Helm repo index.yaml for the given GitHub repo
+	./scripts/charts.sh index
+
+
 #################
 #### AWS EKS ####
 #################
@@ -27,17 +42,3 @@ eks-info-cluster: ## Get k8s cluster information using kubectl
 eks-external-services: ## Get external services for eks cluster
 	./scripts/aws.sh external-services
 
-
-
-################
-#### CHARTS ####
-################
-
-charts-package:  ## Package Helm charts
-	./scripts/charts.sh package
-
-charts-upload: ## Upload Helm chart packages to GitHub Release
-	./scripts/charts.sh upload
-
-charts-index: ## Update Helm repo index.yaml for the given GitHub repo
-	./scripts/charts.sh index
