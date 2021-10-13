@@ -17,7 +17,7 @@ prometheus:
       # loadBalancerIP: "10.1.1.104"
       type: LoadBalancer 
 
-kubeStateMetrics:
+kube-state-metrics:
   fullnameOverride: kube-state-metrics
 
 grafana:
