@@ -6,7 +6,6 @@ prometheus:
     fullnameOverride: prometheus-alertmanager
   kubeStateMetrics:
     enabled: true
-    fullnameOverride: kube-state-metrics
   nodeExporter:
     fullnameOverride: prometheus-node-exporter
   pushgateway:
@@ -17,6 +16,9 @@ prometheus:
     service:
       # loadBalancerIP: "10.1.1.104"
       type: LoadBalancer 
+
+kubeStateMetrics:
+  fullnameOverride: kube-state-metrics
 
 grafana:
   enabled: true
