@@ -22,17 +22,5 @@ if [[ $1 = "index" ]]; then
   exit 0
 fi
 
-
-if [[ $1 = "grafana-stack" ]]; then
-  helm
-  exit 0
-
-fi
-
-if [[ $1 = "kiali-stack" ]]; then
-  helm
-  exit 0
-fi
-
-echo "please specify action ./charts.sh package/upload/index/grafana-stack/kiali-stack"
+echo "please specify action ./charts.sh package/upload/index"
 exit 1

@@ -42,3 +42,13 @@ eks-info-cluster: ## Get k8s cluster information using kubectl
 eks-external-services: ## Get external services for eks cluster
 	./scripts/aws.sh external-services
 
+
+#################
+##### ISTIO #####
+#################
+
+istio-operator: ## Install Istio Operator
+	./scripts/istio.sh install
+
+istio-istioctl: ## Install istioctl binary
+	./scripts/istio.sh istioctl
