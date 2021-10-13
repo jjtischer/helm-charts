@@ -1,0 +1,11 @@
+prometheus:
+  enabled: true
+
+grafana:
+  enabled: true
+
+jaeger:
+  enabled: true
+
+kiali-server:
+  enabled: true

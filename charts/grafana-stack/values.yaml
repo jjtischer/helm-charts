@@ -1,0 +1,14 @@
+prometheus:
+  enabled: true
+
+grafana:
+  enabled: true
+
+loki:
+  enabled: true
+
+tempo:
+  enabled: true
+
+fluent-bit:
+  enabled: true

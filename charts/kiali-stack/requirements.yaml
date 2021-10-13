@@ -1,0 +1,13 @@
+dependencies:
+- name: prometheus
+  version: "14.9.1"
+  repository: "https://prometheus-community.github.io/helm-charts"
+- name: grafana
+  version: "6.16.13"
+  repository: "https://grafana.github.io/helm-charts"
+- name: jaeger
+  version: "0.47.0"
+  repository: "https://jaegertracing.github.io/helm-charts"
+- name: kiali-server
+  version: "v1.41.0"
+  repository: "https://kiali.org/helm-charts"
