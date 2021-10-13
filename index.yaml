@@ -1,0 +1,77 @@
+apiVersion: v1
+entries:
+  grafana-stack:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-10-13T15:18:08.202548+02:00"
+    dependencies:
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 14.9.1
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.16.13
+    - condition: loki.enabled
+      name: loki
+      repository: https://grafana.github.io/helm-charts
+      version: 2.6.0
+    - condition: tempo.enabled
+      name: tempo
+      repository: https://grafana.github.io/helm-charts
+      version: 0.7.7
+    - condition: fluent-bit.enabled
+      name: fluent-bit
+      repository: https://fluent.github.io/helm-charts
+      version: 0.19.1
+    description: A Helm chart for Istio Monitoring with Prometheus, Grafana, Tempo,
+      Loki and FluentBit
+    digest: 039862b98ed046997b739916a0576d9ec8c7d6aa9c112baa71bc5a1ca538ff20
+    home: https://aspenmesh.io
+    maintainers:
+    - email: b.vanbos@f5.com
+      name: Bart Van Bos
+    name: grafana-stack
+    sources:
+    - https://github.com/aspenmesh/helm-charts
+    type: application
+    urls:
+    - https://github.com/aspenmesh/helm-charts/releases/download/grafana-stack-0.1.0/grafana-stack-0.1.0.tgz
+    version: 0.1.0
+  kiali-stack:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-10-13T15:18:08.464307+02:00"
+    dependencies:
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 14.9.1
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.16.13
+    - condition: jaeger.enabled
+      name: jaeger
+      repository: https://jaegertracing.github.io/helm-charts
+      version: 0.47.0
+    - condition: kiali-server.enabled
+      name: kiali-server
+      repository: https://kiali.org/helm-charts
+      version: v1.41.0
+    description: A Helm chart for Istio Monitoring with Kiali, Grafana, Prometheus
+      and Jaeger
+    digest: 721680196d14c09d0a004d3436ec8970f63b5adffd5d51e57a081b232b012bfb
+    home: https://aspenmesh.io
+    maintainers:
+    - email: b.vanbos@f5.com
+      name: Bart Van Bos
+    name: kiali-stack
+    sources:
+    - https://github.com/aspenmesh/helm-charts
+    type: application
+    urls:
+    - https://github.com/aspenmesh/helm-charts/releases/download/kiali-stack-0.1.0/kiali-stack-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-10-13T15:18:08.464317+02:00"
