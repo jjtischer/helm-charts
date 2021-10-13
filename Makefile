@@ -52,3 +52,17 @@ istio-operator: ## Install Istio Operator
 
 istio-istioctl: ## Install istioctl binary
 	./scripts/istio.sh istioctl
+
+
+################
+##### HELM #####
+################
+
+helm-repos: ## Install and update Helm Repos
+	./scripts/helm.sh repos
+
+helm-grafana-stack: ## Install Grafana Monitoring Stack
+	./scripts/helm.sh grafana-stack
+
+helm-kiali-stack: ## Install Kiali Monitoring Stack
+	./scripts/helm.sh kiali-stack
