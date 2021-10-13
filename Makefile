@@ -48,10 +48,16 @@ eks-external-services: ## Get external services for eks cluster
 #################
 
 istio-operator: ## Install Istio Operator
-	./scripts/istio.sh install
+	./scripts/istio.sh install-operator
 
 istio-istioctl: ## Install istioctl binary
 	./scripts/istio.sh istioctl
+
+istio-grafana-stack: ## Install Istio with Grafana Stack configured
+	./scripts/istio.sh install-grafana-stack
+
+istio-loki-stack: ## Install Istio with Loki Stack configured
+	./scripts/istio.sh install-loki-stack
 
 
 ################

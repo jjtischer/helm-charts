@@ -5,9 +5,20 @@ source ${ROOT_DIR}/scripts/environment.sh
 set -o xtrace
 
 KUBECONFIG=${ROOT_DIR}/${EKS_CLUSTER_NAME}-kubeconfig.yaml
+ISTIO_OPERATOR_DIR=${ROOT_DIR}/scripts/istio-operator
 
-if [[ $1 = "install" ]]; then
+if [[ $1 = "install-operator" ]]; then
   istioctl --kubeconfig ${KUBECONFIG} operator init
+  exit 0
+fi
+
+if [[ $1 = "install-grafana-stack" ]]; then
+  kubectl --kubeconfig ${KUBECONFIG} apply -f ${ISTIO_OPERATOR_DIR}/grafana-stack.yaml
+  exit 0
+fi
+
+if [[ $1 = "install-loki-stack" ]]; then
+  kubectl --kubeconfig ${KUBECONFIG} apply -f ${ISTIO_OPERATOR_DIR}/loki-stack.yaml
   exit 0
 fi
 
@@ -17,5 +28,5 @@ if [[ $1 = "istioctl" ]]; then
   exit 0
 fi
 
-echo "please specify action ./istio.sh install/istioctl"
+echo "please specify action ./istio.sh install-operator/install-grafana-stack/install-loki-stack/istioctl"
 exit 1

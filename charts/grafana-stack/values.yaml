@@ -1,3 +1,4 @@
+# https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
 prometheus:
   enabled: true
   fullnameOverride: prometheus
@@ -20,6 +21,7 @@ prometheus:
       type: LoadBalancer 
 
 
+# https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 grafana:
   enabled: true
   fullnameOverride: grafana
@@ -118,6 +120,7 @@ grafana:
     type: LoadBalancer
 
 
+# https://github.com/grafana/helm-charts/blob/main/charts/loki/values.yaml
 loki:
   enabled: true
   fullnameOverride: loki
@@ -129,6 +132,7 @@ loki:
     type: LoadBalancer
 
 
+# https://github.com/grafana/helm-charts/blob/main/charts/tempo/values.yaml
 tempo:
   enabled: true
   fullnameOverride: tempo
@@ -146,6 +150,7 @@ tempo:
           grpc:
 
 
+# https://github.com/fluent/helm-charts/blob/main/charts/fluent-bit/values.yaml
 fluent-bit:
   enabled: true
   fullnameOverride: fluent-bit

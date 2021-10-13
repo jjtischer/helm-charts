@@ -1,3 +1,4 @@
+# https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
 prometheus:
   enabled: true
   fullnameOverride: prometheus
@@ -20,6 +21,7 @@ prometheus:
       type: LoadBalancer 
 
 
+# https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 grafana:
   enabled: true
   fullnameOverride: grafana
@@ -93,6 +95,7 @@ grafana:
     type: LoadBalancer
 
 
+# https://github.com/jaegertracing/helm-charts/blob/main/charts/jaeger/values.yaml
 jaeger:
   enabled: true
   fullnameOverride: jaeger
@@ -110,6 +113,7 @@ jaeger:
       type: LoadBalancer
 
 
+# https://github.com/kiali/helm-charts/blob/master/kiali-server/values.yaml
 kiali-server:
   enabled: true
   fullnameOverride: kiali
