@@ -69,7 +69,7 @@ grafana:
       datasources:
         - name: Loki
           type: loki
-          url: http://loki.istio-system.svc.cluster.local:3100
+          url: http://loki.{{ template "grafana-stack.namespace" . }}:3100
           access: proxy
           orgId: 1
           uid: loki
@@ -83,14 +83,14 @@ grafana:
           isDefault: false
         - name: Prometheus
           type: prometheus
-          url: http://prometheus.istio-system.svc.cluster.local:80
+          url: http://prometheus.{{ template "grafana-stack.namespace" . }}:80
           access: proxy
           orgId: 1
           uid: prometheus
           isDefault: true
         - name: Tempo
           type: tempo
-          url: http://tempo.istio-system.svc:3100
+          url: http://tempo.{{ template "grafana-stack.namespace" . }}:3100
           access: proxy
           orgId: 1
           uid: tempo
@@ -151,7 +151,7 @@ fluent-bit:
       [OUTPUT]
           name loki
           match *
-          host loki.istio-system.svc
+          host loki.{{ template "grafana-stack.namespace" . }}
           port 3100
           tenant_id ""
           labels job=fluentbit

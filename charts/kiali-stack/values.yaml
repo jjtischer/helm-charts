@@ -65,7 +65,7 @@ grafana:
       datasources:
         - name: Prometheus
           type: prometheus
-          url: http://prometheus.istio-system.svc.cluster.local:80
+          url: http://prometheus.{{ template "kiali-stack.namespace" . }}:80
           access: proxy
           orgId: 1
           uid: prometheus
@@ -119,12 +119,12 @@ kiali-server:
       auth:
         password: aspenmesh
         username: admin
-      in_cluster_url: "http://grafana.istio-system:80"
-      url: "http://grafana.aspendemo.org"
+      in_cluster_url: http://grafana.{{ template "kiali-stack.namespace" . }}:80
+      url: http://grafana.aspendemo.org
     prometheus:
-      url: "http://prometheus.istio-system:80"
+      url: http://prometheus.{{ template "kiali-stack.namespace" . }}:80
     tracing:
-      in_cluster_url: "http://jaeger-query.istio-system:80"
-      url: "http://jaeger.aspendemo.org"
+      in_cluster_url: http://jaeger-query.{{ template "kiali-stack.namespace" . }}:80
+      url: http://jaeger.aspendemo.org
       use_grpc: false
       whitelist_istio_system: ["jaeger-query", "istio-ingressgateway", "istio-eastwestgateway", "istio-egressgateway"]
