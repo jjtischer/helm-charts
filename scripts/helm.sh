@@ -19,6 +19,11 @@ if [[ $1 = "repos" ]]; then
   exit 0
 fi
 
+if [[ $1 = "list" ]]; then
+  helm repo update
+  helm search repo aspenmesh
+  exit 0
+fi
 
 if [[ $1 = "grafana-stack-install" ]]; then
   kubectl --kubeconfig ${KUBECONFIG} create namespace ${MONITORING_NAMESPACE}
@@ -45,5 +50,5 @@ if [[ $1 = "kiali-stack-remove" ]]; then
 fi
 
 
-echo "please specify action ./helm.sh repos/grafana-stack-install/grafana-stack-remove/kiali-stack-install/kiali-stack-remove"
+echo "please specify action ./helm.sh repos/list/grafana-stack-install/grafana-stack-remove/kiali-stack-install/kiali-stack-remove"
 exit 1

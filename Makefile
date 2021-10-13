@@ -62,6 +62,10 @@ helm-repos: ## Install and update Helm Repos
 	./scripts/helm.sh repos
 
 
+helm-list: ## List the charts in aspenmesh Helm Repo
+	./scripts/helm.sh list
+
+
 
 helm-grafana-stack-install: ## Install Grafana Monitoring Stack
 	./scripts/helm.sh grafana-stack-install
