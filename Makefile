@@ -61,8 +61,8 @@ istio-istioctl: ## Install istioctl binary
 helm-repos: ## Install and update Helm Repos
 	./scripts/helm.sh repos
 
-helm-grafana-stack: ## Install Grafana Monitoring Stack
-	./scripts/helm.sh grafana-stack
+helm-grafana-stack-install: ## Install Grafana Monitoring Stack
+	./scripts/helm.sh grafana-stack-install
 
-helm-kiali-stack: ## Install Kiali Monitoring Stack
-	./scripts/helm.sh kiali-stack
+helm-kiali-stack-install: ## Install Kiali Monitoring Stack
+	./scripts/helm.sh kiali-stack-install
