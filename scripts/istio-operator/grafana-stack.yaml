@@ -67,5 +67,5 @@ spec:
         sampling: 100
         max_path_tag_length: 99999
         zipkin:
-          address: jaeger-collector.monitoring:9411
+          address: tempo.monitoring:9411
   profile: default
