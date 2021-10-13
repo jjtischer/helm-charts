@@ -6,6 +6,8 @@ prometheus:
     fullnameOverride: prometheus-alertmanager
   kubeStateMetrics:
     enabled: true
+  kube-state-metrics:
+    fullnameOverride: kube-state-metrics
   nodeExporter:
     fullnameOverride: prometheus-node-exporter
   pushgateway:
@@ -17,8 +19,6 @@ prometheus:
       # loadBalancerIP: "10.1.1.104"
       type: LoadBalancer 
 
-kube-state-metrics:
-  fullnameOverride: kube-state-metrics
 
 grafana:
   enabled: true
@@ -92,6 +92,7 @@ grafana:
     # loadBalancerIP: "10.1.1.105"
     type: LoadBalancer
 
+
 jaeger:
   enabled: true
   fullnameOverride: jaeger
@@ -107,6 +108,7 @@ jaeger:
     service:
       # loadBalancerIP: "10.1.1.107"
       type: LoadBalancer
+
 
 kiali-server:
   enabled: true
