@@ -1,0 +1,15 @@
+dependencies:
+- name: prometheus
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 14.9.1
+- name: grafana
+  repository: https://grafana.github.io/helm-charts
+  version: 6.16.13
+- name: jaeger
+  repository: https://jaegertracing.github.io/helm-charts
+  version: 0.47.0
+- name: kiali-server
+  repository: https://kiali.org/helm-charts
+  version: 1.41.0
+digest: sha256:8d1d3749f9c5ee86b765fd3c5b3cd8863fe97345bc2c1846e2cd7a4921efa440
+generated: "2021-10-13T14:53:10.391995+02:00"
