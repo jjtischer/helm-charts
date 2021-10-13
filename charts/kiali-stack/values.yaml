@@ -1,7 +1,16 @@
 prometheus:
   enabled: true
+  fullnameOverride: prometheus
 
+  alertmanager:
+    fullnameOverride: prometheus-alertmanager
+  kubeStateMetrics:
+    enabled: true
+    fullnameOverride: kube-state-metrics
+  nodeExporter:
+    fullnameOverride: prometheus-node-exporter
   pushgateway:
+    fullnameOverride: prometheus-pushgateway
     enabled: false
   server:
     fullnameOverride: prometheus
@@ -11,6 +20,7 @@ prometheus:
 
 grafana:
   enabled: true
+  fullnameOverride: grafana
 
   adminUser: admin
   adminPassword: aspenmesh
@@ -78,20 +88,23 @@ grafana:
 
 jaeger:
   enabled: true
-
+  fullnameOverride: jaeger
   agent:
     fullnameOverride: jaeger-agent-bond
   collector:
+    fullnameOverride: jaeger-collector
     service:
       zipkin:
         port: 9411
   query:
+    fullnameOverride: jaeger-query
     service:
       # loadBalancerIP: "10.1.1.107"
       type: LoadBalancer
 
 kiali-server:
   enabled: true
+  fullnameOverride: kiali
 
   istio_namespace: istio-system
   auth:

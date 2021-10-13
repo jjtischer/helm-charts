@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-set -o xtrace
 
 ROOT_DIR=$(pwd)
 source ${ROOT_DIR}/scripts/environment.sh
+set -o xtrace
 
 if [[ $1 = "login" ]]; then
 	aws configure --profile ${AWS_PROFILE}

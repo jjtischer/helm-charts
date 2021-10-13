@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-set -o xtrace
 
 ROOT_DIR=$(pwd)
 source ${ROOT_DIR}/scripts/environment.sh
+set -o xtrace
 
 KUBECONFIG=${ROOT_DIR}/${EKS_CLUSTER_NAME}-kubeconfig.yaml
 

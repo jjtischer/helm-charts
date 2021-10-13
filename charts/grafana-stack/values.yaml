@@ -1,7 +1,16 @@
 prometheus:
   enabled: true
+  fullnameOverride: prometheus
 
+  alertmanager:
+    fullnameOverride: prometheus-alertmanager
+  kubeStateMetrics:
+    enabled: true
+    fullnameOverride: kube-state-metrics
+  nodeExporter:
+    fullnameOverride: prometheus-node-exporter
   pushgateway:
+    fullnameOverride: prometheus-pushgateway
     enabled: false
   server:
     fullnameOverride: prometheus
@@ -11,6 +20,7 @@ prometheus:
 
 grafana:
   enabled: true
+  fullnameOverride: grafana
 
   adminUser: admin
   adminPassword: aspenmesh
@@ -104,6 +114,7 @@ grafana:
 
 loki:
   enabled: true
+  fullnameOverride: loki
 
   persistence:
     enabled: true
@@ -113,6 +124,7 @@ loki:
 
 tempo:
   enabled: true
+  fullnameOverride: tempo
 
   persistence:
     enabled: true
@@ -128,6 +140,7 @@ tempo:
 
 fluent-bit:
   enabled: true
+  fullnameOverride: fluent-bit
 
   logLevel: trace
   config:

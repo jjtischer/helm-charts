@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-set -o xtrace
 
 ROOT_DIR=$(pwd)
 source ${ROOT_DIR}/scripts/environment.sh
+set -o xtrace
 
 KUBECONFIG=${ROOT_DIR}/${EKS_CLUSTER_NAME}-kubeconfig.yaml
 MONITORING_NAMESPACE=monitoring
@@ -19,12 +19,18 @@ if [[ $1 = "repos" ]]; then
   exit 0
 fi
 
+
 if [[ $1 = "grafana-stack-install" ]]; then
   kubectl --kubeconfig ${KUBECONFIG} create namespace ${MONITORING_NAMESPACE}
   helm --kubeconfig ${KUBECONFIG} install grafana-stack aspenmesh/grafana-stack --namespace ${MONITORING_NAMESPACE}
   exit 0
 fi
 
+if [[ $1 = "grafana-stack-remove" ]]; then
+  helm --kubeconfig ${KUBECONFIG} uninstall grafana-stack --namespace ${MONITORING_NAMESPACE}
+  kubectl --kubeconfig ${KUBECONFIG} delete namespace ${MONITORING_NAMESPACE}
+  exit 0
+fi
 
 if [[ $1 = "kiali-stack-install" ]]; then
   kubectl --kubeconfig ${KUBECONFIG} create namespace ${MONITORING_NAMESPACE}
@@ -32,6 +38,12 @@ if [[ $1 = "kiali-stack-install" ]]; then
   exit 0
 fi
 
+if [[ $1 = "kiali-stack-remove" ]]; then
+  helm --kubeconfig ${KUBECONFIG} uninstall kiali-stack --namespace ${MONITORING_NAMESPACE}
+  kubectl --kubeconfig ${KUBECONFIG} delete namespace ${MONITORING_NAMESPACE}
+  exit 0
+fi
 
-echo "please specify action ./helm.sh repos/grafana-stack-install/kiali-stack-install"
+
+echo "please specify action ./helm.sh repos/grafana-stack-install/grafana-stack-remove/kiali-stack-install/kiali-stack-remove"
 exit 1
