@@ -25,9 +25,15 @@ if [[ $1 = "list" ]]; then
   exit 0
 fi
 
+
 if [[ $1 = "grafana-stack-install" ]]; then
   kubectl create namespace ${MONITORING_NAMESPACE}
   helm install grafana-stack aspenmesh/grafana-stack --namespace ${MONITORING_NAMESPACE}
+  exit 0
+fi
+
+if [[ $1 = "grafana-stack-upgrade" ]]; then
+  helm upgrade grafana-stack aspenmesh/grafana-stack --namespace ${MONITORING_NAMESPACE}
   exit 0
 fi
 
@@ -37,9 +43,15 @@ if [[ $1 = "grafana-stack-remove" ]]; then
   exit 0
 fi
 
+
 if [[ $1 = "kiali-stack-install" ]]; then
   kubectl create namespace ${MONITORING_NAMESPACE}
   helm install kiali-stack aspenmesh/kiali-stack --namespace ${MONITORING_NAMESPACE}
+  exit 0
+fi
+
+if [[ $1 = "kiali-stack-upgrade" ]]; then
+  helm upgrade kiali-stack aspenmesh/kiali-stack --namespace ${MONITORING_NAMESPACE}
   exit 0
 fi
 
@@ -50,5 +62,5 @@ if [[ $1 = "kiali-stack-remove" ]]; then
 fi
 
 
-echo "please specify action ./helm.sh repos/list/grafana-stack-install/grafana-stack-remove/kiali-stack-install/kiali-stack-remove"
+echo "please specify action ./helm.sh repos/list/grafana-stack-install/grafana-stack-upgrade/grafana-stack-remove/kiali-stack-install/kiali-stack-upgrade/kiali-stack-remove"
 exit 1

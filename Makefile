@@ -76,6 +76,9 @@ helm-list: ## List the charts in aspenmesh Helm Repo
 helm-grafana-stack-install: ## Install Grafana Monitoring Stack
 	./scripts/helm.sh grafana-stack-install
 
+helm-grafana-stack-upgrade: ## Upgrade Grafana Monitoring Stack
+	./scripts/helm.sh grafana-stack-upgrade
+
 helm-grafana-stack-remove: ## Remove Grafana Monitoring Stack
 	./scripts/helm.sh grafana-stack-remove
 
@@ -83,6 +86,9 @@ helm-grafana-stack-remove: ## Remove Grafana Monitoring Stack
 
 helm-kiali-stack-install: ## Install Kiali Monitoring Stack
 	./scripts/helm.sh kiali-stack-install
+
+helm-kiali-stack-upgrade: ## Upgrade Kiali Monitoring Stack
+	./scripts/helm.sh kiali-stack-upgrade
 
 helm-kiali-stack-remove: ## Remove Kiali Monitoring Stack
 	./scripts/helm.sh kiali-stack-remove
