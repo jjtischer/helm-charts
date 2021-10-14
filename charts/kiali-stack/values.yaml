@@ -154,10 +154,10 @@ kiali-server:
       url: http://grafana.aspendemo.org
     prometheus:
       url: http://prometheus:80
-    server:
-      port: 80
     tracing:
       in_cluster_url: http://jaeger-query:80
       url: http://jaeger.aspendemo.org
       use_grpc: false
       whitelist_istio_system: ["jaeger-query", "istio-ingressgateway", "istio-eastwestgateway", "istio-egressgateway"]
+  server:
+    port: 80
