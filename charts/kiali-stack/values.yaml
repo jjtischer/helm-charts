@@ -17,7 +17,6 @@ prometheus:
   server:
     fullnameOverride: prometheus
     service:
-      # loadBalancerIP: "10.1.1.104"
       type: LoadBalancer 
 
 
@@ -87,7 +86,7 @@ grafana:
       datasources:
         - name: Prometheus
           type: prometheus
-          url: http://prometheus.{{ template "kiali-stack.namespace" . }}:80
+          url: http://prometheus:80
           access: proxy
           orgId: 1
           uid: prometheus
@@ -95,7 +94,6 @@ grafana:
   persistence:
     enabled: true
   service:
-    # loadBalancerIP: "10.1.1.105"
     type: LoadBalancer
 
 
@@ -113,7 +111,6 @@ jaeger:
   query:
     fullnameOverride: jaeger-query
     service:
-      # loadBalancerIP: "10.1.1.107"
       type: LoadBalancer
   storage:
     cassandra:
@@ -130,7 +127,6 @@ kiali-server:
     strategy: anonymous
   deployment:
     service_type: LoadBalancer
-    # additional_service_yaml: { "loadBalancerIP": "10.1.1.103" }
   external_services:
     istio:
       component_status:
@@ -151,12 +147,12 @@ kiali-server:
       auth:
         password: aspenmesh
         username: admin
-      in_cluster_url: http://grafana.{{ template "kiali-stack.namespace" . }}:80
+      in_cluster_url: http://grafana:80
       url: http://grafana.aspendemo.org
     prometheus:
-      url: http://prometheus.{{ template "kiali-stack.namespace" . }}:80
+      url: http://prometheus:80
     tracing:
-      in_cluster_url: http://jaeger-query.{{ template "kiali-stack.namespace" . }}:80
+      in_cluster_url: http://jaeger-query:80
       url: http://jaeger.aspendemo.org
       use_grpc: false
       whitelist_istio_system: ["jaeger-query", "istio-ingressgateway", "istio-eastwestgateway", "istio-egressgateway"]

@@ -17,7 +17,6 @@ prometheus:
   server:
     fullnameOverride: prometheus
     service:
-      # loadBalancerIP: "10.1.1.104"
       type: LoadBalancer 
 
 
@@ -87,7 +86,7 @@ grafana:
       datasources:
         - name: Loki
           type: loki
-          url: http://loki.{{ template "grafana-stack.namespace" . }}:3100
+          url: http://loki:3100
           access: proxy
           orgId: 1
           uid: loki
@@ -101,14 +100,14 @@ grafana:
           isDefault: false
         - name: Prometheus
           type: prometheus
-          url: http://prometheus.{{ template "grafana-stack.namespace" . }}:80
+          url: http://prometheus:80
           access: proxy
           orgId: 1
           uid: prometheus
           isDefault: true
         - name: Tempo
           type: tempo
-          url: http://tempo.{{ template "grafana-stack.namespace" . }}:3100
+          url: http://tempo:3100
           access: proxy
           orgId: 1
           uid: tempo
@@ -116,7 +115,6 @@ grafana:
   persistence:
     enabled: true
   service:
-    # loadBalancerIP: "10.1.1.105"
     type: LoadBalancer
 
 
@@ -128,7 +126,6 @@ loki:
   persistence:
     enabled: true
   service:
-    # loadBalancerIP: "10.1.1.106"
     type: LoadBalancer
 
 
@@ -177,7 +174,7 @@ fluent-bit:
       [OUTPUT]
           name loki
           match *
-          host loki.{{ template "grafana-stack.namespace" . }}
+          host loki
           port 3100
           tenant_id ""
           labels job=fluentbit
