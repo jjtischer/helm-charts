@@ -4,21 +4,21 @@ ROOT_DIR=$(pwd)
 source ${ROOT_DIR}/scripts/environment.sh
 set -o xtrace
 
-KUBECONFIG=${ROOT_DIR}/${EKS_CLUSTER_NAME}-kubeconfig.yaml
+export KUBECONFIG=${ROOT_DIR}/${EKS_CLUSTER_NAME}-kubeconfig.yaml
 ISTIO_OPERATOR_DIR=${ROOT_DIR}/scripts/istio-operator
 
 if [[ $1 = "install-operator" ]]; then
-  istioctl --kubeconfig ${KUBECONFIG} operator init
+  istioctl operator init
   exit 0
 fi
 
 if [[ $1 = "install-grafana-stack" ]]; then
-  kubectl --kubeconfig ${KUBECONFIG} apply -f ${ISTIO_OPERATOR_DIR}/grafana-stack.yaml
+  kubectl apply -f ${ISTIO_OPERATOR_DIR}/grafana-stack.yaml
   exit 0
 fi
 
 if [[ $1 = "install-kiali-stack" ]]; then
-  kubectl --kubeconfig ${KUBECONFIG} apply -f ${ISTIO_OPERATOR_DIR}/kiali-stack.yaml
+  kubectl apply -f ${ISTIO_OPERATOR_DIR}/kiali-stack.yaml
   exit 0
 fi
 

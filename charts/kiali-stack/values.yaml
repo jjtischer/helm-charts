@@ -115,6 +115,9 @@ jaeger:
   storage:
     cassandra:
       nameOverride: cassandra
+  # https://github.com/helm/charts/tree/master/incubator/cassandra
+  cassandra:
+    fullnameOverride: cassandra
 
 
 # https://github.com/kiali/helm-charts/blob/master/kiali-server/values.yaml
