@@ -1,7 +1,6 @@
 
 
-versions=( 1.9.1 1.9.2 1.9.3 1.9.4 1.9.5 1.9.6 1.9.7 1.9.8 1.9.9 1.10.0 1.10.1 1.10.2 1.10.3 1.10.4 1.10.5 1.11.0 1.11.1 1.11.2 1.11.3 )
-# versions=( 1.9.0 )
+versions=( 1.9.0 1.9.1 1.9.2 1.9.3 1.9.4 1.9.5 1.9.6 1.9.7 1.9.8 1.9.9 1.10.0 1.10.1 1.10.2 1.10.3 1.10.4 1.10.5 1.11.0 1.11.1 1.11.2 1.11.3 )
 
 for version in "${versions[@]}"
 do
@@ -18,7 +17,7 @@ do
   cr package charts/istio/gateways/istio-ingress
   cr package charts/istio/gateways/istio-egress
   
-  cr upload -o aspenmesh --git-repo helm-charts --token "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"
+  cr upload -o aspenmesh --git-repo helm-charts --token ${GITHUB_TOKEN}
   cr index -o aspenmesh --git-repo helm-charts --charts-repo https://aspenmesh.github.io/helm-charts
   cp .cr-index/index.yaml ./index.yaml
   

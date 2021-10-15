@@ -12,6 +12,11 @@ gateways:
       name: https
       targetPort: 8443
       protocol: TCP
+      # This is the port where sni routing happens
+    - port: 15443
+      targetPort: 15443
+      name: tls
+      protocol: TCP
 
     # Enable cross-cluster access using SNI matching.
     # Make sure you set suffix if deploying multiple egress gateways.
@@ -102,9 +107,6 @@ gateways:
     # whether to run the gateway in a privileged container
     runAsRoot: false
 
-    # The injection template to use for the gateway. If not set, no injection will be performed.
-    injectionTemplate: ""
-
 # Revision is set as 'version' label and part of the resource names when installing multiple control planes.
 revision: ""
 
@@ -156,7 +158,7 @@ global:
   hub: docker.io/istio
 
   # Default tag for Istio images.
-  tag: 1.10.2
+  tag: 1.9.0
 
   # Specify image pull policy if default behavior isn't desired.
   # Default behavior: latest images will be Always else IfNotPresent.
@@ -288,13 +290,11 @@ global:
     # Setting this port to a non-zero value enables STS server.
     servicePort: 0
 
+  # Deprecated, use meshConfig.trustDomain
+  trustDomain: ""
+
 meshConfig:
   enablePrometheusMerge: true
-
-  # The trust domain corresponds to the trust root of a system
-  # Refer to https://github.com/spiffe/spiffe/blob/master/standards/SPIFFE-ID.md#21-trust-domain
-  trustDomain: "cluster.local"
-
   defaultConfig:
     proxyMetadata: {}
     tracing:
