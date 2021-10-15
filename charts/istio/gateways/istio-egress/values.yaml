@@ -59,11 +59,6 @@ gateways:
 
     configVolumes: []
     additionalContainers: []
-
-    serviceAccount:
-      # Annotations to add to the service account
-      annotations: {}
-
     ### Advanced options ############
     # TODO: convert to real options, env should not be exposed
     env:
@@ -161,7 +156,7 @@ global:
   hub: docker.io/istio
 
   # Default tag for Istio images.
-  tag: 1.10.5
+  tag: 1.11.0
 
   # Specify image pull policy if default behavior isn't desired.
   # Default behavior: latest images will be Always else IfNotPresent.
