@@ -17,6 +17,16 @@ helm repo add aspenmesh https://aspenmesh.github.io/helm-charts
 ```
 
 You can then run `helm search repo aspenmesh` to see the charts.
+
+### Charts
+
+This is a list of available charts.
+
+|Chart|Release|Docs|Description|
+|-----|-------|----|-----------|
+|grafana-stack|[0.12.0](https://github.com/aspenmesh/helm-charts/releases/tag/grafana-stack-0.12.0)|[doc](charts/grafana-stack/README.md)|Istio Monitoring with Kiali, Grafana, Prometheus and Jaeger|
+|kiali-stack|[0.12.0](https://github.com/aspenmesh/helm-charts/releases/tag/kiali-stack-0.12.0)|[doc](charts/kiali-stack/README.md)|Istio Monitoring with Prometheus, Grafana, Tempo, Loki and FluentBit|
+
 ## License
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
