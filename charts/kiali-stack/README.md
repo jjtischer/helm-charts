@@ -112,7 +112,7 @@ service/grafana                    LoadBalancer   172.20.237.169   aaa.eu-west-1
 service/jaeger-agent-bond          ClusterIP      172.20.200.189   <none>                                                                    5775/UDP,6831/UDP,6832/UDP,5778/TCP,14271/TCP   40h
 service/jaeger-collector           ClusterIP      172.20.188.172   <none>                                                                    14250/TCP,14268/TCP,9411/TCP,14269/TCP          40h
 service/jaeger-query               LoadBalancer   172.20.239.80    bbb.eu-west-1.elb.amazonaws.com   80:30392/TCP,16687:31069/TCP                    40h
-service/kiali                      LoadBalancer   172.20.214.211   ccc.eu-west-1.elb.amazonaws.com    80:32720/TCP,9090:31239/TCP                     40h
+service/kiali                      LoadBalancer   172.20.214.211   ccc.eu-west-1.elb.amazonaws.com   80:32720/TCP,9090:31239/TCP                     40h
 service/kube-state-metrics         ClusterIP      172.20.91.118    <none>                                                                    8080/TCP                                        40h
 service/prometheus                 LoadBalancer   172.20.251.176   ddd.eu-west-1.elb.amazonaws.com   80:32061/TCP                                    40h
 service/prometheus-alertmanager    ClusterIP      172.20.244.15    <none>                                                                    80/TCP                                          40h
