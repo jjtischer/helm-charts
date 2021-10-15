@@ -6,7 +6,7 @@ for version in "${versions[@]}"
 do
   echo "========== Istio version ${version} =========="
   rm -rf /Users/vanbos/Documents/Git/aspenmesh/helm-charts/charts/istio/*
-  rm -rf .cr-release-packages/*.tgz
+  # rm -rf .cr-release-packages/*.tgz
 
 	cp -R /Users/vanbos/Documents/Git/istio/istio-${version}/manifests/charts/* /Users/vanbos/Documents/Git/aspenmesh/helm-charts/charts/istio/
   cr package charts/istio/base
@@ -18,11 +18,11 @@ do
   cr package charts/istio/gateways/istio-egress
   
   cr upload -o aspenmesh --git-repo helm-charts --token ${GITHUB_TOKEN}
-  cr index -o aspenmesh --git-repo helm-charts --charts-repo https://aspenmesh.github.io/helm-charts
-  cp .cr-index/index.yaml ./index.yaml
+  # cr index -o aspenmesh --git-repo helm-charts --charts-repo https://aspenmesh.github.io/helm-charts
+  # cp .cr-index/index.yaml ./index.yaml
   
-  git add -A 
-  git commit -a -m "Added istio helm charts for version ${version}"
-  git push
+  # git add -A 
+  # git commit -a -m "Added istio helm charts for version ${version}"
+  # git push
 done
 
