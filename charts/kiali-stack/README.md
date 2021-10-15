@@ -108,31 +108,16 @@ pod/prometheus-node-exporter-xdh6p             1/1     Running     0          40
 
 NAME                               TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)                                         AGE
 service/cassandra                  ClusterIP      None             <none>                                                                    7000/TCP,7001/TCP,7199/TCP,9042/TCP,9160/TCP    40h
-service/grafana                    LoadBalancer   172.20.237.169   af9e2532df8d544f4b5610b750ce2e80-1121842445.eu-west-1.elb.amazonaws.com   80:31954/TCP                                    40h
+service/grafana                    LoadBalancer   172.20.237.169   aaa.eu-west-1.elb.amazonaws.com   80:31954/TCP                                    40h
 service/jaeger-agent-bond          ClusterIP      172.20.200.189   <none>                                                                    5775/UDP,6831/UDP,6832/UDP,5778/TCP,14271/TCP   40h
 service/jaeger-collector           ClusterIP      172.20.188.172   <none>                                                                    14250/TCP,14268/TCP,9411/TCP,14269/TCP          40h
-service/jaeger-query               LoadBalancer   172.20.239.80    afb25d17f54c14eccbea0c5d9a85bcbe-1874721461.eu-west-1.elb.amazonaws.com   80:30392/TCP,16687:31069/TCP                    40h
-service/kiali                      LoadBalancer   172.20.214.211   a2d9c75c3ae264468935589809930ab0-424944981.eu-west-1.elb.amazonaws.com    80:32720/TCP,9090:31239/TCP                     40h
+service/jaeger-query               LoadBalancer   172.20.239.80    bbb.eu-west-1.elb.amazonaws.com   80:30392/TCP,16687:31069/TCP                    40h
+service/kiali                      LoadBalancer   172.20.214.211   ccc.eu-west-1.elb.amazonaws.com    80:32720/TCP,9090:31239/TCP                     40h
 service/kube-state-metrics         ClusterIP      172.20.91.118    <none>                                                                    8080/TCP                                        40h
-service/prometheus                 LoadBalancer   172.20.251.176   a87dcefbd50ae4771bf9a63d0e0a8dc1-1666584299.eu-west-1.elb.amazonaws.com   80:32061/TCP                                    40h
+service/prometheus                 LoadBalancer   172.20.251.176   ddd.eu-west-1.elb.amazonaws.com   80:32061/TCP                                    40h
 service/prometheus-alertmanager    ClusterIP      172.20.244.15    <none>                                                                    80/TCP                                          40h
 service/prometheus-node-exporter   ClusterIP      None             <none>                                                                    9100/TCP                                        40h
 
-
-# kubectl get po,svc -n istio-system
-
-NAME                                        READY   STATUS    RESTARTS   AGE
-pod/istio-egressgateway-8658d4769f-2p8ct    1/1     Running   0          44h
-pod/istio-egressgateway-8658d4769f-drxtx    1/1     Running   0          44h
-pod/istio-ingressgateway-69d8b97b46-95tlw   1/1     Running   0          44h
-pod/istio-ingressgateway-69d8b97b46-qpfph   1/1     Running   0          44h
-pod/istiod-7894c9d76f-2rz28                 1/1     Running   0          44h
-pod/istiod-7894c9d76f-7472d                 1/1     Running   0          44h
-
-NAME                           TYPE           CLUSTER-IP       EXTERNAL-IP                                                              PORT(S)                                      AGE
-service/istio-egressgateway    ClusterIP      172.20.10.173    <none>                                                                   80/TCP,443/TCP                               44h
-service/istio-ingressgateway   LoadBalancer   172.20.141.122   a489ebf7f92e64c29886cdadb5766032-195801944.eu-west-1.elb.amazonaws.com   15021:31064/TCP,80:32464/TCP,443:30663/TCP   44h
-service/istiod                 ClusterIP      172.20.23.192    <none>                                                                   15010/TCP,15012/TCP,443/TCP,15014/TCP        44h
 ```
 
 ## License

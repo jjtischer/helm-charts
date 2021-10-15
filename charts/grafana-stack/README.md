@@ -79,6 +79,39 @@ EOF
   
 ```
 
+This should result in the following components being installed.
+
+```console
+kubectl get po,svc -n monitoring
+NAME                                           READY   STATUS    RESTARTS   AGE
+pod/fluent-bit-66t6x                           1/1     Running   0          40h
+pod/fluent-bit-6bgpc                           1/1     Running   0          40h
+pod/fluent-bit-8jbkn                           1/1     Running   0          40h
+pod/fluent-bit-f7h5g                           1/1     Running   0          40h
+pod/fluent-bit-z6k44                           1/1     Running   0          40h
+pod/grafana-87b7c8859-w8fnr                    1/1     Running   0          40h
+pod/kube-state-metrics-6777c9bd5-smsz9         1/1     Running   0          40h
+pod/loki-0                                     1/1     Running   0          40h
+pod/prometheus-86695d8b76-r5788                2/2     Running   0          40h
+pod/prometheus-alertmanager-566bddf599-5n8zm   2/2     Running   0          40h
+pod/prometheus-node-exporter-qfhxz             1/1     Running   0          40h
+pod/prometheus-node-exporter-qht7g             1/1     Running   0          40h
+pod/prometheus-node-exporter-slz5d             1/1     Running   0          40h
+pod/prometheus-node-exporter-wd5k8             1/1     Running   0          40h
+pod/prometheus-node-exporter-wdcpb             1/1     Running   0          40h
+pod/tempo-0                                    2/2     Running   0          40h
+
+NAME                               TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)                                                                                                    AGE
+service/fluent-bit                 ClusterIP      172.20.186.99    <none>                                                                    2020/TCP                                                                                                   40h
+service/grafana                    LoadBalancer   172.20.218.68    aaa.eu-west-1.elb.amazonaws.com   80:32487/TCP                                                                                               40h
+service/kube-state-metrics         ClusterIP      172.20.149.103   <none>                                                                    8080/TCP                                                                                                   40h
+service/loki                       LoadBalancer   172.20.255.92    bbb.eu-west-1.elb.amazonaws.com   3100:32032/TCP                                                                                             40h
+service/loki-headless              ClusterIP      None             <none>                                                                    3100/TCP                                                                                                   40h
+service/prometheus                 LoadBalancer   172.20.107.186   ccc.eu-west-1.elb.amazonaws.com   80:31990/TCP                                                                                               40h
+service/prometheus-alertmanager    ClusterIP      172.20.122.249   <none>                                                                    80/TCP                                                                                                     40h
+service/prometheus-node-exporter   ClusterIP      None             <none>                                                                    9100/TCP                                                                                                   40h
+service/tempo                      ClusterIP      172.20.215.124   <none>                                                                    3100/TCP,16686/TCP,6831/UDP,6832/UDP,14268/TCP,14250/TCP,9411/TCP,55680/TCP,55681/TCP,4317/TCP,55678/TCP   40h
+```
 
 ## License
 
