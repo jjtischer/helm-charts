@@ -53,6 +53,9 @@ istio-operator: ## Install Istio Operator
 istio-istioctl: ## Install istioctl binary
 	./scripts/istio.sh istioctl
 
+istio-elastic-stack: ## Install Istio with Elastic Stack configured
+	./scripts/istio.sh install-elastic-stack
+
 istio-grafana-stack: ## Install Istio with Grafana Stack configured
 	./scripts/istio.sh install-grafana-stack
 
@@ -70,6 +73,17 @@ helm-repos: ## Install and update Helm Repos
 
 helm-list: ## List the charts in aspenmesh Helm Repo
 	./scripts/helm.sh list
+
+
+
+helm-elastic-stack-install: ## Install Elastic Monitoring Stack
+	./scripts/helm.sh elastic-stack-install
+
+helm-elastic-stack-upgrade: ## Upgrade Elastic Monitoring Stack
+	./scripts/helm.sh elastic-stack-upgrade
+
+helm-elastic-stack-remove: ## Remove Elastic Monitoring Stack
+	./scripts/helm.sh elastic-stack-remove
 
 
 

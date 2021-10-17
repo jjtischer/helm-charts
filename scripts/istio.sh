@@ -12,6 +12,12 @@ if [[ $1 = "install-operator" ]]; then
   exit 0
 fi
 
+
+if [[ $1 = "install-elastic-stack" ]]; then
+  kubectl apply -f ${ISTIO_OPERATOR_DIR}/elastic-stack.yaml
+  exit 0
+fi
+
 if [[ $1 = "install-grafana-stack" ]]; then
   kubectl apply -f ${ISTIO_OPERATOR_DIR}/grafana-stack.yaml
   exit 0
@@ -28,5 +34,5 @@ if [[ $1 = "istioctl" ]]; then
   exit 0
 fi
 
-echo "please specify action ./istio.sh install-operator/install-grafana-stack/install-kiali-stack/istioctl"
+echo "please specify action ./istio.sh install-operator/install-elastic-stack/install-grafana-stack/install-kiali-stack/istioctl"
 exit 1

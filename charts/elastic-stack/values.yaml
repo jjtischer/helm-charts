@@ -1,0 +1,133 @@
+# https://github.com/elastic/helm-charts/blob/main/elasticsearch/values.yaml
+elasticsearch:
+  enabled: true
+
+  volumeClaimTemplate:
+    resources:
+      requests:
+        storage: 10Gi
+  secret:
+    password: aspenmesh
+  
+  service:
+    type: LoadBalancer
+
+
+
+# https://github.com/elastic/helm-charts/blob/main/kibana/values.yaml
+kibana:
+  enabled: true
+  fullnameOverride: kibana
+
+  extraEnvs:
+    - name: "ELASTICSEARCH_USERNAME"
+      value: elastic
+    - name: "ELASTICSEARCH_PASSWORD"
+      value: aspenmesh
+
+  service:
+    type: LoadBalancer
+
+
+# https://github.com/elastic/helm-charts/blob/main/apm-server/values.yaml
+apm-server:
+  enabled: true
+  fullnameOverride: apm-server
+
+  apmConfig:
+    apm-server.yml: |
+      apm-server:
+        host: "0.0.0.0:8200"
+        kibana: 
+          enabled: true
+          host: http://kibana:5601
+          username: elastic
+          password: aspenmesh
+
+      queue: {}
+      output.elasticsearch:
+        hosts: ["http://elasticsearch-master:9200"]
+        username: "${ELASTICSEARCH_USERNAME}"
+        password: "${ELASTICSEARCH_PASSWORD}"
+
+  extraEnvs:
+    - name: "ELASTICSEARCH_USERNAME"
+      value: elastic
+    - name: "ELASTICSEARCH_PASSWORD"
+      value: aspenmesh
+
+  service:
+    type: LoadBalancer
+
+
+# https://github.com/elastic/helm-charts/blob/main/filebeat/values.yaml
+filebeat:
+  enabled: true
+  fullnameOverride: filebeat
+
+  daemonset:
+    extraEnvs:
+      - name: "ELASTICSEARCH_USERNAME"
+        value: elastic
+      - name: "ELASTICSEARCH_PASSWORD"
+        value: aspenmesh
+
+
+# https://github.com/elastic/helm-charts/blob/main/metricbeat/values.yaml
+metricbeat:
+  enabled: true
+  fullnameOverride: metricbeat
+
+  daemonset:
+    extraEnvs:
+      - name: "ELASTICSEARCH_USERNAME"
+        value: elastic
+      - name: "ELASTICSEARCH_PASSWORD"
+        value: aspenmesh
+
+
+
+# https://github.com/elastic/helm-charts/blob/main/logstash/values.yaml
+logstash:
+  enabled: false
+  fullnameOverride: logstash
+
+  persistence:
+    enabled: true
+
+# https://github.com/open-telemetry/opentelemetry-helm-charts/blob/main/charts/opentelemetry-collector/values.yaml
+opentelemetry-collector:
+  enabled: true
+  fullnameOverride: otel-collector
+
+  agentCollector:
+    enabled: false
+  standaloneCollector:
+    enabled: true
+    config:
+      receivers:
+        otlp:
+          protocols:
+            grpc:
+            http:
+        zipkin:
+          endpoint: 0.0.0.0:9411
+      exporters:
+        otlp/elastic:
+          endpoint: apm-server:8200
+          insecure: true
+      service:
+        pipelines:
+          traces:
+            receivers: 
+              - otlp
+              - zipkin
+            exporters:
+              - logging
+              - otlp/elastic]
+          metrics:
+            receivers:
+              - otlp
+            exporters:
+              - logging
+              - otlp/elastic

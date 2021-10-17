@@ -1,0 +1,24 @@
+dependencies:
+- name: elasticsearch
+  repository: https://helm.elastic.co
+  version: 7.15.0
+- name: kibana
+  repository: https://helm.elastic.co
+  version: 7.15.0
+- name: apm-server
+  repository: https://helm.elastic.co
+  version: 7.15.0
+- name: filebeat
+  repository: https://helm.elastic.co
+  version: 7.15.0
+- name: metricbeat
+  repository: https://helm.elastic.co
+  version: 7.15.0
+- name: logstash
+  repository: https://helm.elastic.co
+  version: 7.15.0
+- name: opentelemetry-collector
+  repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+  version: 0.6.0
+digest: sha256:6fbdc74c889183dc5cb48655674601b2f307d44e45ea24ec44bc13bf64a82088
+generated: "2021-10-17T02:53:49.431665+02:00"
