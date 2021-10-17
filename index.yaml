@@ -276,6 +276,53 @@ entries:
     urls:
     - https://github.com/aspenmesh/helm-charts/releases/download/config-1.2.0/config-1.2.0.tgz
     version: 1.2.0
+  elastic-stack:
+  - apiVersion: v2
+    appVersion: 1.11.3
+    created: "2021-10-17T04:26:05.308108+02:00"
+    dependencies:
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://helm.elastic.co
+      version: 7.15.0
+    - condition: kibana.enabled
+      name: kibana
+      repository: https://helm.elastic.co
+      version: 7.15.0
+    - condition: apm-server.enabled
+      name: apm-server
+      repository: https://helm.elastic.co
+      version: 7.15.0
+    - condition: filebeat.enabled
+      name: filebeat
+      repository: https://helm.elastic.co
+      version: 7.15.0
+    - condition: metricbeat.enabled
+      name: metricbeat
+      repository: https://helm.elastic.co
+      version: 7.15.0
+    - condition: logstash.enabled
+      name: logstash
+      repository: https://helm.elastic.co
+      version: 7.15.0
+    - condition: opentelemetry-collector.enabled
+      name: opentelemetry-collector
+      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+      version: 0.6.0
+    description: A Helm chart for Istio Monitoring with Elastic Search, Kibana, APM
+      Server and Filebeat
+    digest: 76d15fb44a9db21146f9f72a8dc1a06a5cf8c4cb938d84e390a9a42df1168089
+    home: https://aspenmesh.io
+    maintainers:
+    - email: b.vanbos@f5.com
+      name: Bart Van Bos
+    name: elastic-stack
+    sources:
+    - https://github.com/aspenmesh/helm-charts
+    type: application
+    urls:
+    - https://github.com/aspenmesh/helm-charts/releases/download/elastic-stack-0.1.0/elastic-stack-0.1.0.tgz
+    version: 0.1.0
   grafana-stack:
   - apiVersion: v2
     appVersion: 1.11.3
@@ -2846,4 +2893,4 @@ entries:
     urls:
     - https://github.com/aspenmesh/helm-charts/releases/download/kiali-stack-0.1.0/kiali-stack-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-15T03:02:43.495555+02:00"
+generated: "2021-10-17T04:26:05.30918+02:00"

@@ -19,7 +19,9 @@ if [[ $1 = "upload" ]]; then
 fi
 
 if [[ $1 = "index" ]]; then
-  cr index -o aspenmesh --git-repo helm-charts --charts-repo https://aspenmesh.github.io/helm-charts
+  echo "What is your github token? "
+  read -r GITHUB_TOKEN
+  cr index -o aspenmesh --git-repo helm-charts --charts-repo https://aspenmesh.github.io/helm-charts --token ${GITHUB_TOKEN}
   exit 0
 fi
 
