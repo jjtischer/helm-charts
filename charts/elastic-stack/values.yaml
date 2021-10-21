@@ -85,6 +85,8 @@ metricbeat:
       - name: "ELASTICSEARCH_PASSWORD"
         value: aspenmesh
 
+  kube-state-metrics:
+    fullnameOverride: kube-state-metrics
 
 
 # https://github.com/elastic/helm-charts/blob/main/logstash/values.yaml
