@@ -1,4 +1,4 @@
-# Grafana Stack Helm Chart
+# Elastic Stack Helm Chart
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/grafana)](https://artifacthub.io/packages/search?repo=grafana)
@@ -7,16 +7,18 @@ The code is provided as-is with no warranties.
 
 This Helm Chart contains the following components to monitor an Istio Cluster.
 
-![Grafana Stack Components](./imgs/stack.png "Grafana Stack Components")
+![Elastic Stack Components](./imgs/stack.png "Elastic Stack Components")
 
 
 |Component|Helm Repo|Version|
 |---------|--------|-------|
-|Prometheus|[prometheus-community](https://prometheus-community.github.io/helm-charts)|14.9.1|
-|Grafana|[grafana](https://grafana.github.io/helm-charts)|6.16.13|
-|Tempo|[tempo](https://grafana.github.io/helm-charts)|0.7.7|
-|Loki|[loki](https://grafana.github.io/helm-charts)|2.6.0|
-|FluentBit|[fluent-bit](https://fluent.github.io/helm-charts)|0.19.1|
+|Elasticsearch|[elasticsearch](https://helm.elastic.co)|7.15.0|
+|Kibana|[kibana](https://helm.elastic.co)|7.15.0|
+|APM Server|[apm-server](https://helm.elastic.co)|7.15.0|
+|Filebeat|[filebeat](https://helm.elastic.co)|7.15.0|
+|Metricbeat|[metricbeat](https://helm.elastic.co)|7.15.0|
+|Logstash|[logstash](https://helm.elastic.co)|7.15.0|
+|Open Telemetry|[opentelemetry-collector](https://open-telemetry.github.io/opentelemetry-helm-charts)|0.6.0|
 
 ## Usage
 
@@ -32,10 +34,10 @@ Once Helm is set up properly, add the repo as follows:
 You can then run `helm search repo aspenmesh` to see the charts.
 
 ```console
-# helm search repo aspenmesh/grafana-stack
+# helm search repo aspenmesh/elastic-stack
 
 NAME                    CHART VERSION   APP VERSION     DESCRIPTION                                       
-aspenmesh/grafana-stack 0.12.0          1.11.3          A Helm chart for Istio Monitoring with Promethe
+aspenmesh/elastic-stack 0.1.0          1.11.3          A Helm chart for Istio Monitoring with Elastic
 ```
 
 # Example
@@ -69,14 +71,14 @@ spec:
         sampling: 100
         max_path_tag_length: 99999
         zipkin:
-          address: tempo.monitoring:9411
+          address: otel-collector.monitoring:9411
   profile: default
 EOF
 
 # kubectl create namespace monitoring
 
-# helm install grafana-stack aspenmesh/grafana-stack --namespace monitoring
-  
+# helm install elastic-stack aspenmesh/elastic-stack --namespace monitoring
+
 ```
 
 This should result in the following components being installed.

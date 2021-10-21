@@ -124,7 +124,7 @@ opentelemetry-collector:
               - zipkin
             exporters:
               - logging
-              - otlp/elastic]
+              - otlp/elastic
           metrics:
             receivers:
               - otlp
