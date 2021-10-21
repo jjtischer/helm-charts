@@ -88,7 +88,6 @@ This should result in the following components being installed.
 
 NAME                                                    READY   STATUS    RESTARTS   AGE
 pod/apm-server-6c88c699c6-pn8vp                         1/1     Running   0          40h
-pod/elastic-stack-kube-state-metrics-845d5b4d97-2pxxm   1/1     Running   0          40h
 pod/elasticsearch-master-0                              1/1     Running   0          40h
 pod/elasticsearch-master-1                              1/1     Running   0          40h
 pod/elasticsearch-master-2                              1/1     Running   0          40h
@@ -98,6 +97,7 @@ pod/filebeat-bs2xr                                      1/1     Running   0     
 pod/filebeat-z6zc7                                      1/1     Running   0          40h
 pod/filebeat-zshwr                                      1/1     Running   0          40h
 pod/kibana-97c49776b-5d2bn                              1/1     Running   0          40h
+pod/kube-state-metrics-7b9cd54d9c-d4gch                 1/1     Running   0          40h
 pod/metricbeat-94gkh                                    1/1     Running   0          40h
 pod/metricbeat-d9xlq                                    1/1     Running   0          40h
 pod/metricbeat-h42l8                                    1/1     Running   0          40h
@@ -108,7 +108,7 @@ pod/otel-collector-6548484968-4gz89                     1/1     Running   0     
 
 NAME                                       TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)                                 AGE
 service/apm-server                         LoadBalancer   172.20.212.128   aaa.elb.amazonaws.com   8200:30236/TCP                          3m4s
-service/elastic-stack-kube-state-metrics   ClusterIP      172.20.120.145   <none>                                                                    8080/TCP                                3m4s
+service/kube-state-metrics                 ClusterIP      172.20.120.145   <none>                                                                    8080/TCP                                3m4s
 service/elasticsearch-master               LoadBalancer   172.20.238.199   bbb.eu-west-1.elb.amazonaws.com     9200:31777/TCP,9300:32677/TCP           3m4s
 service/elasticsearch-master-headless      ClusterIP      None             <none>                                                                    9200/TCP,9300/TCP                       3m4s
 service/kibana                             LoadBalancer   172.20.45.172    ccc.eu-west-1.elb.amazonaws.com     5601:32756/TCP                          3m4s
