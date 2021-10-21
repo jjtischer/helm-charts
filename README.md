@@ -24,8 +24,10 @@ This is a list of available charts.
 
 |Chart|Release|Docs|Description|
 |-----|-------|----|-----------|
+|elastic-stack|[0.12.0](https://github.com/aspenmesh/helm-charts/releases/tag/elastic-stack-0.2.0)|[doc](charts/elastic-stack/README.md)|Istio Monitoring with Elastic Search, Kibana, APM Server and Filebeat|
 |grafana-stack|[0.12.0](https://github.com/aspenmesh/helm-charts/releases/tag/grafana-stack-0.12.0)|[doc](charts/grafana-stack/README.md)|Istio Monitoring with Kiali, Grafana, Prometheus and Jaeger|
 |kiali-stack|[0.12.0](https://github.com/aspenmesh/helm-charts/releases/tag/kiali-stack-0.12.0)|[doc](charts/kiali-stack/README.md)|Istio Monitoring with Prometheus, Grafana, Tempo, Loki and FluentBit|
+
 
 ## License
 
