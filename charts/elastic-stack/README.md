@@ -37,7 +37,7 @@ You can then run `helm search repo aspenmesh` to see the charts.
 # helm search repo aspenmesh/elastic-stack
 
 NAME                    CHART VERSION   APP VERSION     DESCRIPTION                                       
-aspenmesh/elastic-stack 0.1.0          1.11.3          A Helm chart for Istio Monitoring with Elastic
+aspenmesh/elastic-stack	0.2.0        	1.11.3     	A Helm chart for Istio Monitoring with Elastic ...
 ```
 
 # Example
@@ -84,35 +84,35 @@ EOF
 This should result in the following components being installed.
 
 ```console
-kubectl get po,svc -n monitoring
-NAME                                           READY   STATUS    RESTARTS   AGE
-pod/fluent-bit-66t6x                           1/1     Running   0          40h
-pod/fluent-bit-6bgpc                           1/1     Running   0          40h
-pod/fluent-bit-8jbkn                           1/1     Running   0          40h
-pod/fluent-bit-f7h5g                           1/1     Running   0          40h
-pod/fluent-bit-z6k44                           1/1     Running   0          40h
-pod/grafana-87b7c8859-w8fnr                    1/1     Running   0          40h
-pod/kube-state-metrics-6777c9bd5-smsz9         1/1     Running   0          40h
-pod/loki-0                                     1/1     Running   0          40h
-pod/prometheus-86695d8b76-r5788                2/2     Running   0          40h
-pod/prometheus-alertmanager-566bddf599-5n8zm   2/2     Running   0          40h
-pod/prometheus-node-exporter-qfhxz             1/1     Running   0          40h
-pod/prometheus-node-exporter-qht7g             1/1     Running   0          40h
-pod/prometheus-node-exporter-slz5d             1/1     Running   0          40h
-pod/prometheus-node-exporter-wd5k8             1/1     Running   0          40h
-pod/prometheus-node-exporter-wdcpb             1/1     Running   0          40h
-pod/tempo-0                                    2/2     Running   0          40h
+# kubectl get po,svc -n monitoring
 
-NAME                               TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)                                                                                                    AGE
-service/fluent-bit                 ClusterIP      172.20.186.99    <none>                                                                    2020/TCP                                                                                                   40h
-service/grafana                    LoadBalancer   172.20.218.68    aaa.eu-west-1.elb.amazonaws.com   80:32487/TCP                                                                                               40h
-service/kube-state-metrics         ClusterIP      172.20.149.103   <none>                                                                    8080/TCP                                                                                                   40h
-service/loki                       LoadBalancer   172.20.255.92    bbb.eu-west-1.elb.amazonaws.com   3100:32032/TCP                                                                                             40h
-service/loki-headless              ClusterIP      None             <none>                                                                    3100/TCP                                                                                                   40h
-service/prometheus                 LoadBalancer   172.20.107.186   ccc.eu-west-1.elb.amazonaws.com   80:31990/TCP                                                                                               40h
-service/prometheus-alertmanager    ClusterIP      172.20.122.249   <none>                                                                    80/TCP                                                                                                     40h
-service/prometheus-node-exporter   ClusterIP      None             <none>                                                                    9100/TCP                                                                                                   40h
-service/tempo                      ClusterIP      172.20.215.124   <none>                                                                    3100/TCP,16686/TCP,6831/UDP,6832/UDP,14268/TCP,14250/TCP,9411/TCP,55680/TCP,55681/TCP,4317/TCP,55678/TCP   40h
+NAME                                                    READY   STATUS    RESTARTS   AGE
+pod/apm-server-6c88c699c6-pn8vp                         1/1     Running   0          40h
+pod/elastic-stack-kube-state-metrics-845d5b4d97-2pxxm   1/1     Running   0          40h
+pod/elasticsearch-master-0                              1/1     Running   0          40h
+pod/elasticsearch-master-1                              1/1     Running   0          40h
+pod/elasticsearch-master-2                              1/1     Running   0          40h
+pod/filebeat-52cwj                                      1/1     Running   0          40h
+pod/filebeat-8mxjn                                      1/1     Running   0          40h
+pod/filebeat-bs2xr                                      1/1     Running   0          40h
+pod/filebeat-z6zc7                                      1/1     Running   0          40h
+pod/filebeat-zshwr                                      1/1     Running   0          40h
+pod/kibana-97c49776b-5d2bn                              1/1     Running   0          40h
+pod/metricbeat-94gkh                                    1/1     Running   0          40h
+pod/metricbeat-d9xlq                                    1/1     Running   0          40h
+pod/metricbeat-h42l8                                    1/1     Running   0          40h
+pod/metricbeat-metrics-8645d4649b-8xvjg                 1/1     Running   0          40h
+pod/metricbeat-vv88k                                    1/1     Running   0          40h
+pod/metricbeat-xrtj2                                    1/1     Running   0          40h
+pod/otel-collector-6548484968-4gz89                     1/1     Running   0          40h
+
+NAME                                       TYPE           CLUSTER-IP       EXTERNAL-IP                                                               PORT(S)                                 AGE
+service/apm-server                         LoadBalancer   172.20.212.128   aaa.elb.amazonaws.com   8200:30236/TCP                          3m4s
+service/elastic-stack-kube-state-metrics   ClusterIP      172.20.120.145   <none>                                                                    8080/TCP                                3m4s
+service/elasticsearch-master               LoadBalancer   172.20.238.199   bbb.eu-west-1.elb.amazonaws.com     9200:31777/TCP,9300:32677/TCP           3m4s
+service/elasticsearch-master-headless      ClusterIP      None             <none>                                                                    9200/TCP,9300/TCP                       3m4s
+service/kibana                             LoadBalancer   172.20.45.172    ccc.eu-west-1.elb.amazonaws.com     5601:32756/TCP                          3m4s
+service/otel-collector                     ClusterIP      172.20.238.203   <none>                                                                    14250/TCP,14268/TCP,4317/TCP,9411/TCP   3m4s
 ```
 
 ## License

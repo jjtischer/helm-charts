@@ -82,7 +82,8 @@ EOF
 This should result in the following components being installed.
 
 ```console
-kubectl get po,svc -n monitoring
+# kubectl get po,svc -n monitoring
+
 NAME                                           READY   STATUS    RESTARTS   AGE
 pod/fluent-bit-66t6x                           1/1     Running   0          40h
 pod/fluent-bit-6bgpc                           1/1     Running   0          40h
