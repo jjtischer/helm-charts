@@ -2059,6 +2059,47 @@ entries:
   istio-nginx-kic:
   - apiVersion: v2
     appVersion: 1.11.3
+    created: "2021-10-22T16:11:28.616864+02:00"
+    dependencies:
+    - condition: base.enabled
+      name: base
+      repository: https://aspenmesh.github.io/helm-charts
+      version: 1.11.3
+    - condition: istio-discovery.enabled
+      name: istio-discovery
+      repository: https://aspenmesh.github.io/helm-charts
+      version: 1.11.3
+    - condition: nginx-ingress.enabled
+      name: nginx-ingress
+      repository: https://helm.nginx.com/stable
+      version: 0.11.2
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.16.13
+    - condition: jaeger.enabled
+      name: jaeger
+      repository: https://jaegertracing.github.io/helm-charts
+      version: 0.47.0
+    - condition: kiali-server.enabled
+      name: kiali-server
+      repository: https://kiali.org/helm-charts
+      version: v1.41.0
+    description: A Helm chart for Istio with Nginx+ based KIC (K8s Ingress Controller)
+    digest: 5b5c1a4a7b141db125e294d1b337253e6ad4ee1fd30e2a0fa8ee1fa92120143b
+    home: https://aspenmesh.io
+    maintainers:
+    - email: b.vanbos@f5.com
+      name: Bart Van Bos
+    name: istio-nginx-kic
+    sources:
+    - https://github.com/aspenmesh/helm-charts
+    type: application
+    urls:
+    - https://github.com/aspenmesh/helm-charts/releases/download/istio-nginx-kic-0.2.0/istio-nginx-kic-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.11.3
     created: "2021-10-22T15:55:41.921136+02:00"
     dependencies:
     - condition: base.enabled
@@ -3027,4 +3068,4 @@ entries:
     urls:
     - https://github.com/aspenmesh/helm-charts/releases/download/kiali-stack-0.1.0/kiali-stack-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-22T15:55:41.921765+02:00"
+generated: "2021-10-22T16:11:28.617851+02:00"
