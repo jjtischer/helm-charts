@@ -1,0 +1,21 @@
+dependencies:
+- name: base
+  repository: https://aspenmesh.github.io/helm-charts
+  version: 1.11.3
+- name: istio-discovery
+  repository: https://aspenmesh.github.io/helm-charts
+  version: 1.11.3
+- name: nginx-ingress
+  repository: https://helm.nginx.com/stable
+  version: 0.11.2
+- name: grafana
+  repository: https://grafana.github.io/helm-charts
+  version: 6.16.13
+- name: jaeger
+  repository: https://jaegertracing.github.io/helm-charts
+  version: 0.47.0
+- name: kiali-server
+  repository: https://kiali.org/helm-charts
+  version: 1.41.0
+digest: sha256:d7a7b752049a44faa32d67c868a613c50c7f0f2deec0c3bed279923e051279ee
+generated: "2021-10-22T15:54:00.963382+02:00"
