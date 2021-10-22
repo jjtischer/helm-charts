@@ -20,7 +20,8 @@ nginx-ingress:
   controller:
     name: nginx-ingress
     nginxplus: true
-    appprotect: false
+    appprotect:
+      enabled: false
     image:
       repository: boeboe/nginx-plus
       tag: nginx-kic-opentracing-1.11.1
