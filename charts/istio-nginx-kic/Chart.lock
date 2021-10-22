@@ -7,7 +7,7 @@ dependencies:
   version: 1.11.3
 - name: nginx-ingress
   repository: https://helm.nginx.com/stable
-  version: 0.11.2
+  version: 0.9.3
 - name: grafana
   repository: https://grafana.github.io/helm-charts
   version: 6.16.13
@@ -17,5 +17,5 @@ dependencies:
 - name: kiali-server
   repository: https://kiali.org/helm-charts
   version: 1.41.0
-digest: sha256:d7a7b752049a44faa32d67c868a613c50c7f0f2deec0c3bed279923e051279ee
-generated: "2021-10-22T15:54:00.963382+02:00"
+digest: sha256:c2d646bfa93b94bbb173754bf2a04fd4458d757e3f9cc7dc252a2dfba9febc56
+generated: "2021-10-22T18:52:13.668033+02:00"
