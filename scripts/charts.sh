@@ -6,8 +6,7 @@ set -o xtrace
 
 if [[ $1 = "package" ]]; then
   # cr package charts/elastic-stack
-  # cr package charts/grafana-stack
-  cr package charts/istio-nginx-kic
+  cr package charts/grafana-stack
   # cr package charts/kiali-stack
   exit 0
 fi
