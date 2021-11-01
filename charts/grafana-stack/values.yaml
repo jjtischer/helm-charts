@@ -2,7 +2,6 @@
 prometheus:
   enabled: true
   fullnameOverride: prometheus
-
   alertmanager:
     fullnameOverride: prometheus-alertmanager
   kubeStateMetrics:
@@ -93,7 +92,7 @@ grafana:
           jsonData:
             derivedFields:
               - datasourceName: Tempo
-                matcherRegex: "traceID=(\\w+)"
+                matcherRegex: '"trace_id":"(\w+)"'
                 name: TraceID
                 url: "$${__value.raw}"
                 datasourceUid: tempo
@@ -122,7 +121,6 @@ grafana:
 loki:
   enabled: true
   fullnameOverride: loki
-
   persistence:
     enabled: true
   service:
@@ -133,7 +131,6 @@ loki:
 tempo:
   enabled: true
   fullnameOverride: tempo
-
   persistence:
     enabled: true
   tempo:
@@ -151,39 +148,37 @@ tempo:
 fluent-bit:
   enabled: true
   fullnameOverride: fluent-bit
-
   logLevel: trace
   config:
     service: |
       [SERVICE]
-          Flush 1
-          Daemon Off
-          Log_Level trace
-          Parsers_File custom_parsers.conf
-          HTTP_Server On
-          HTTP_Listen 0.0.0.0
-          HTTP_Port 2020
+          Flush         1
+          Daemon        Off
+          Log_Level     trace
+          Parsers_File  custom_parsers.conf
+          HTTP_Server   On
+          HTTP_Listen   0.0.0.0
+          HTTP_Port     2020
     inputs: |
       [INPUT]
-          Name tail
-          Path /var/log/containers/*istio-proxy*.log
-          Parser cri
-          Tag kube.*
+          Name          tail
+          Path          /var/log/containers/*istio-proxy*.log
+          Parser        istio-proxy
+          Tag           kube.*
           Mem_Buf_Limit 5MB
     outputs: |
       [OUTPUT]
-          name loki
-          match *
-          host loki
-          port 3100
-          tenant_id ""
-          labels job=fluentbit
-          label_keys $trace_id
-          auto_kubernetes_labels on
+          name                    loki
+          match                   *
+          host                    loki
+          port                    3100
+          tenant_id               ""
+          labels                  job=fluentbit
+          label_keys              $trace_id
+          auto_kubernetes_labels  on
     customParsers: |
       [PARSER]
-          Name cri
-          Format regex
-          Regex ^(?<time>[^ ]+) (?<stream>stdout|stderr) (?<logtag>[^ ]*) (?<message>.*)$
-          Time_Key    time
-          Time_Format %Y-%m-%dT%H:%M:%S.%L%z
+          Name          istio-proxy
+          Format        json
+          Time_Key      start_time
+          Time_Format   %Y-%m-%dT%H:%M:%S.%L%z
